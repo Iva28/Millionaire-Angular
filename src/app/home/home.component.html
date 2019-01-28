@@ -1,0 +1,54 @@
+
+<div *ngIf="!start">
+  <button (click)="start = true">Start</button>
+</div>
+
+<div *ngIf="start">
+    <label>Points: {{points}}</label>
+    <hr />
+
+    <div class="lifelines" *ngIf="!win && !gameover">
+        <label>Lifelines:</label>
+        <div>
+            <button [disabled]='usedFifty'    (click)="FiftySelected()">50:50</button>
+            <button [disabled]='usedPhone'    (click)="PhoneFriendSelected()"><i class="fa fa-phone"></i> Phone a Friend</button>
+            <button [disabled]='usedAudience' (click)="AskAudienceSelected()"><i class="fa fa-group"></i> Ask the Audience</button>
+        </div>
+        <hr />
+    </div>
+    
+    <div *ngIf="!win && !gameover">
+        <app-question [question] = 'curQuestion' (onNextQuestion)='checkAnswer($event)'></app-question> 
+        <br />
+        <label *ngIf="usedPhone && showPhone">Friend: "Definitely, {{curQuestion.answers[curQuestion.correct]}}"</label> <br />
+        <label *ngIf="usedAudience && showAudience">{{resAudience}}</label>
+
+        <div *ngIf="usedAudience && showAudience">
+            <ul class="chart">
+                <li><span [style.height.%] = "audienceRes['A']" title="A"></span></li>
+                <li><span [style.height.%] = "audienceRes['B']" title="B"></span></li>
+                <li><span [style.height.%] = "audienceRes['C']" title="C"></span></li>
+                <li><span [style.height.%] = "audienceRes['D']" title="D"></span></li>
+            </ul>  
+        </div>
+    </div>
+
+    <div *ngIf="win">
+        <label>You win!</label>
+    </div>
+
+    <div *ngIf="gameover">
+        <label>Incorrect! Game over!</label>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

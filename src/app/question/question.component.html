@@ -1,0 +1,23 @@
+
+<div>
+  <div>
+    <span>{{question.id}}. {{question.question}}</span>
+  </div>
+  <br/>
+  <div class="choices">
+    <div [hidden]="AHide">
+      <span (click)='checkAnswer(0)'>A. {{question.answers[0]}}</span>
+    </div>
+    <div [hidden]="BHide">
+      <span (click)='checkAnswer(1)'>B. {{question.answers[1]}}</span>
+    </div>
+    <div [hidden]="CHide">
+      <span (click)='checkAnswer(2)'>C. {{question.answers[2]}}</span>
+    </div>
+    <div [hidden]="DHide">
+      <span (click)='checkAnswer(3)'>D. {{question.answers[3]}}</span>
+    </div>
+  </div>
+</div>
+
+
