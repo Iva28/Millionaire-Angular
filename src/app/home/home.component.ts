@@ -14,7 +14,9 @@ export class HomeComponent implements OnInit {
   questions: Question[] = [ new Question (1, 'Which month has only 28 days (unless it\'s a leap year)?',
                                          ['March', 'September', 'June', 'Feburary'], 3),
                             new Question (2, 'Which country is largest by area?',
-                                         ['UK', 'USA', 'Russia', 'China'], 2)];
+                                         ['UK', 'USA', 'Russia', 'China'], 2),
+                            new Question (3, 'Which state in the United States is largest by area??',
+                                         ['Alaska', 'California', 'Texas', 'Hawaii'], 0)];
 
   curQuestionId = 0;
   curQuestion: Question = this.questions[this.curQuestionId];
@@ -67,15 +69,6 @@ export class HomeComponent implements OnInit {
     this.usedAudience = true;
     this.showAudience = true;
 
-    const nums = [];
-
-    while (nums.length !== 3) {
-      const select =  Math.floor(Math.random() * 4);
-      if (select !== this.curQuestion.correct && !nums.includes(select)) {
-        nums.push(select);
-      }
-    }
-
     let perc = 0;
     for (let i = 0; i < this.curQuestion.answers.length; i++) {
       if (i !== this.curQuestion.correct) {
@@ -93,8 +86,8 @@ export class HomeComponent implements OnInit {
 
     const a = ['A', 'B', 'C', 'D'];
     const b = Object.keys(this.audienceRes);
-    const missing = a.filter(item => b.indexOf(item) < 0);
-    this.audienceRes[missing[0]] = 100 - perc;
+    const correct = a.filter(item => b.indexOf(item) < 0);
+    this.audienceRes[correct[0]] = 100 - perc;
   }
 }
 
