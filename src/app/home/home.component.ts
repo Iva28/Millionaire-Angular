@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   start = false;
   points = 0;
   questions: Question[] = [ new Question (1, 'Which month has only 28 days (unless it\'s a leap year)?',
-                                         ['March', 'September', 'June', 'Feburary'], 3),
+                                         ['March', 'September', 'June', 'February'], 3),
                             new Question (2, 'Which country is largest by area?',
                                          ['UK', 'USA', 'Russia', 'China'], 2),
                             new Question (3, 'Which state in the United States is largest by area??',
