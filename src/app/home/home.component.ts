@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
                                          ['March', 'September', 'June', 'February'], 3),
                             new Question (2, 'Which country is largest by area?',
                                          ['UK', 'USA', 'Russia', 'China'], 2),
-                            new Question (3, 'Which state in the United States is largest by area??',
+                            new Question (3, 'Which state in the United States is largest by area?',
                                          ['Alaska', 'California', 'Texas', 'Hawaii'], 0)];
 
   curQuestionId = 0;
